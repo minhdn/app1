@@ -33,6 +33,7 @@ namespace App1
         /// property is typically used to configure the page.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            //TODO: Do smth here
         }
     }
 }

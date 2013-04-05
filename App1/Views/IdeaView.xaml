@@ -19,7 +19,60 @@
 
         <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
         <x:String x:Key="AppName">My Application</x:String>
+
+        <!-- light blue -->
+        <SolidColorBrush x:Key="BlockBackgroundBrush" Color="#FF557EB9"/>
+
+        <!-- Grid Styles -->
+        <Style x:Key="GridTitleTextStyle" TargetType="TextBlock" BasedOn="{StaticResource BasicTextStyle}">
+            <Setter Property="FontSize" Value="26.667"/>
+            <Setter Property="Margin" Value="12,0,12,2"/>
+        </Style>
+
+        <Style x:Key="GridDescriptionTextStyle" TargetType="TextBlock" BasedOn="{StaticResource BasicTextStyle}">
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Margin" Value="12,0,12,60"/>
+        </Style>
+
+        <DataTemplate x:Key="DefaultGridItemTemplate">
+            <Grid HorizontalAlignment="Left" Width="250" Height="250">
+                <Border Background="{StaticResource BlockBackgroundBrush}" />
+                <TextBlock Text="{Binding ShortContent}" Style="{StaticResource GridTitleTextStyle}"/>
+                <TextBlock Text="{Binding Publisher}" Style="{StaticResource GridDescriptionTextStyle}" />
+                <StackPanel VerticalAlignment="Bottom" Orientation="Horizontal"
+                        Background="{StaticResource ListViewItemOverlayBackgroundThemeBrush}">
+                    <TextBlock Text="Last Updated" Margin="12,4,0,8" Height="42"/>
+                    <TextBlock Text="{Binding Date}" Margin="12,4,12,8" />
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="DefaultListItemTemplate">
+            <Grid Margin="6">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Border Background="{StaticResource BlockBackgroundBrush}" Width="60" Height="60" />
+                <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                    <TextBlock Text="{Binding ShortContent}" Style="{StaticResource ItemTextStyle}" MaxHeight="40"/>
+                    <TextBlock Text="{Binding Publisher}" Style="{StaticResource CaptionTextStyle}" TextWrapping="NoWrap"/>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+
     </Page.Resources>
+
+    <Page.BottomAppBar>
+        <AppBar x:Name="BottomAppBar1" Padding="10,0,10,0" AutomationProperties.Name="Bottom App Bar">
+            <Grid>
+                <StackPanel x:Name="LeftPanel" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button x:Name="Add" Style="{StaticResource AddAppBarButtonStyle}" Tag="Add" Click="Add_OnClick" />
+                    <Button x:Name="Refresh" Style="{StaticResource RefreshAppBarButtonStyle}" Tag="Refresh" Click="Refresh_OnClick" />
+                </StackPanel>
+            </Grid>
+        </AppBar>
+    </Page.BottomAppBar>
 
     <!--
         This grid acts as a root panel for the page that defines two rows:
@@ -40,10 +93,12 @@
             TabIndex="1"
             Grid.RowSpan="2"
             Padding="116,136,116,46"
+            ItemClick="ItemGridView_OnItemClick" 
+            IsItemClickEnabled="True"
             ItemsSource="{Binding Source={StaticResource itemsViewSource}}"
-            ItemTemplate="{StaticResource Standard250x250ItemTemplate}"
+            ItemTemplate="{StaticResource DefaultGridItemTemplate}"
             SelectionMode="None"
-            IsSwipeEnabled="false"/>
+            IsSwipeEnabled="false" Margin="0,0,0,77"/>
 
         <!-- Vertical scrolling list only used when snapped -->
         <ListView
@@ -56,7 +111,7 @@
             Margin="0,-10,0,0"
             Padding="10,0,0,60"
             ItemsSource="{Binding Source={StaticResource itemsViewSource}}"
-            ItemTemplate="{StaticResource Standard80ItemTemplate}"
+            ItemTemplate="{StaticResource DefaultListItemTemplate}"
             SelectionMode="None"
             IsSwipeEnabled="false"/>
 

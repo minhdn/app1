@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Microsoft.WindowsAzure.MobileServices;
 
 // The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=234227
 
@@ -23,6 +24,16 @@ namespace App1
     /// </summary>
     sealed partial class App : Application
     {
+
+        // uncommenting the following code and replacing AppUrl & AppKey with values from  
+        // your mobile service, which are obtained from the Windows Azure Management Portal.
+        // Do this after you add a reference to the Mobile Services client to your project.
+
+        public static MobileServiceClient MobileService = new MobileServiceClient(
+            "https://idealistmd.azure-mobile.net/",
+            "WpfJOXjrgwrYvgMqhzieKPjPcDnkkA90"
+        );
+
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
@@ -64,7 +75,7 @@ namespace App1
                 // When the navigation stack isn't restored navigate to the first page,
                 // configuring the new page by passing required information as a navigation
                 // parameter
-                if (!rootFrame.Navigate(typeof(MainPage), args.Arguments))
+                if (!rootFrame.Navigate(typeof(IdeaView), args.Arguments))
                 {
                     throw new Exception("Failed to create initial page");
                 }

@@ -5,53 +5,72 @@
     <WindowsUser>Minh</WindowsUser>
     <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
     <PackageArchitecture>neutral</PackageArchitecture>
+    <RegisteredManifestChecksum>939F098989B5A95741C396A5CD90301B27FA5C7E3594E4A0F49F2F92C23BC6EC</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>41f74ffa-d234-4edb-bfad-c78a336a5911_1.0.0.0_neutral__ga7xs7wrf02ve</RegisteredPackageMoniker>
+    <RegisteredUserModeAppID>41f74ffa-d234-4edb-bfad-c78a336a5911_ga7xs7wrf02ve!App</RegisteredUserModeAppID>
+    <RegisteredPackageID>41f74ffa-d234-4edb-bfad-c78a336a5911</RegisteredPackageID>
+    <RegisteredPackagePublisher>CN=Minh</RegisteredPackagePublisher>
+    <RegisteredVersion>1.0.0.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
     <AppXManifest Include="C:\Users\Minh\Source\Repos\app1\App1\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-04-05T04:17:25.373</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Minh\Source\Repos\app1\App1\bin\Debug\App1.exe">
       <PackagePath>App1.exe</PackagePath>
+      <Modified>2013-04-05T05:42:51.287</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Minh\Source\Repos\app1\App1\bin\Debug\App1.pdb">
       <PackagePath>App1.pdb</PackagePath>
+      <Modified>2013-04-05T05:42:51.265</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.0\ExtensionSDKs\MobileServicesManagedClient\0.2.0.0\References\CommonConfiguration\neutral\Microsoft.WindowsAzure.MobileServices.Managed.dll">
       <PackagePath>Microsoft.WindowsAzure.MobileServices.Managed.dll</PackagePath>
+      <Modified>2013-01-30T19:38:46.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Minh\Source\Repos\app1\App1\Assets\Logo.png">
       <PackagePath>Assets\Logo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-04-04T05:11:19.666</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Minh\Source\Repos\app1\App1\Assets\SmallLogo.png">
       <PackagePath>Assets\SmallLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-04-04T05:11:19.668</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Minh\Source\Repos\app1\App1\Assets\SplashScreen.png">
       <PackagePath>Assets\SplashScreen.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-04-04T05:11:19.669</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Minh\Source\Repos\app1\App1\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-04-04T05:11:19.679</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Minh\Source\Repos\app1\App1\Common\ReadMe.txt">
       <PackagePath>Common\ReadMe.txt</PackagePath>
+      <Modified>2013-04-04T16:31:29.094</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Minh\Source\Repos\app1\App1\bin\Debug\App.xaml">
       <PackagePath>App.xaml</PackagePath>
+      <Modified>2013-04-04T05:11:19.633</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Minh\Source\Repos\app1\App1\bin\Debug\Common\StandardStyles.xaml">
       <PackagePath>Common\StandardStyles.xaml</PackagePath>
+      <Modified>2013-04-05T05:33:50.987</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Minh\Source\Repos\app1\App1\bin\Debug\Views\IdeaView.xaml">
       <PackagePath>Views\IdeaView.xaml</PackagePath>
+      <Modified>2013-04-05T05:39:37.881</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Minh\Source\Repos\app1\App1\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
+      <Modified>2013-04-05T04:17:25.323</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

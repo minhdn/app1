@@ -406,9 +406,19 @@
         Uncomment any style you reference (as not all may be required).
     -->
 
-    <!--
-    
-    <Style x:Key="SkipBackAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
+    <Style x:Key="RefreshAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
+        <Setter Property="AutomationProperties.AutomationId" Value="RefreshAppBarButton"/>
+        <Setter Property="AutomationProperties.Name" Value="Refresh"/>
+        <Setter Property="Content" Value="&#xE117;"/>
+    </Style>
+
+    <Style x:Key="AddAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
+        <Setter Property="AutomationProperties.AutomationId" Value="AddAppBarButton"/>
+        <Setter Property="AutomationProperties.Name" Value="Add"/>
+        <Setter Property="Content" Value="&#xE109;"/>
+    </Style>
+
+    <!--<Style x:Key="SkipBackAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
         <Setter Property="AutomationProperties.AutomationId" Value="SkipBackAppBarButton"/>
         <Setter Property="AutomationProperties.Name" Value="Skip Back"/>
         <Setter Property="Content" Value="&#xE100;"/>
@@ -517,8 +527,8 @@
         <Setter Property="AutomationProperties.AutomationId" Value="SettingsAppBarButton"/>
         <Setter Property="AutomationProperties.Name" Value="Settings"/>
         <Setter Property="Content" Value="&#xE115;"/>
-    </Style>
-    -->
+    </Style>-->
+    
 
     <!--
     <Style x:Key="VideoAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">

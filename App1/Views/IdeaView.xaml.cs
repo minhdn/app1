@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -11,7 +12,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-
+using Microsoft.WindowsAzure.MobileServices;
+using App1.Models;
 // The Items Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234233
 
 namespace App1
@@ -22,9 +24,11 @@ namespace App1
     /// </summary>
     public sealed partial class IdeaView : App1.Common.LayoutAwarePage
     {
+        private IdeaDatasource data;
         public IdeaView()
         {
             this.InitializeComponent();
+             data = new IdeaDatasource();
         }
 
         /// <summary>
@@ -36,9 +40,41 @@ namespace App1
         /// </param>
         /// <param name="pageState">A dictionary of state preserved by this page during an earlier
         /// session.  This will be null the first time a page is visited.</param>
-        protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
+        protected async override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
-            // TODO: Assign a bindable collection of items to this.DefaultViewModel["Items"]
+            this.DefaultViewModel["Items"] = await data.GetAllIdeas();
+        }
+
+        private async void RefreshIdeasPage()
+        {
+            this.DefaultViewModel["Items"] = await data.GetSortedIdeaByVoteCount();
+        }
+        private void Refresh_OnClick(object sender, RoutedEventArgs e)
+        {
+            RefreshIdeasPage();
+        }
+
+        private async void Add_OnClick(object sender, RoutedEventArgs e)
+        {
+            IdeaItem idea = new IdeaItem();
+            idea.Publisher = "minh";
+            idea.ShortContent = "todo app for w8 and wp8 sync together";
+            idea.VoteCount = 1;
+            idea.Date = DateTime.UtcNow;
+
+            data.AddIdea(idea);
+
+            MessageDialog md = new MessageDialog("Thank you for posting new idea :-)");
+            await md.ShowAsync();
+
+            //Now do refresh page
+            //RefreshIdeasPage();
+        }
+
+        private async void ItemGridView_OnItemClick(object sender, ItemClickEventArgs e)
+        {
+            MessageDialog md = new MessageDialog("clicked");
+            await md.ShowAsync();
         }
     }
-}
+} 

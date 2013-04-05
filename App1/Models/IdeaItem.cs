@@ -3,15 +3,19 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace App1.Models
 {
-    public class Idea : INotifyPropertyChanged
+    public class IdeaItem : INotifyPropertyChanged
     {
+        public int Id { get; set; }
+
         private string _shortContent;
 
+        [DataMember(Name = "shortContext")]
         public string ShortContent
         {
             get { return _shortContent; }
@@ -25,6 +29,7 @@ namespace App1.Models
 
         private int _voteCount;
 
+        [DataMember(Name = "vote")]
         public int VoteCount
         {
             get { return _voteCount; }
@@ -38,6 +43,7 @@ namespace App1.Models
 
         private string _publisher;
 
+        [DataMember(Name = "publisher")]
         public string Publisher
         {
             get { return _publisher; }
@@ -51,6 +57,7 @@ namespace App1.Models
 
         private DateTime _date;
 
+        [DataMember(Name = "createAt")]
         public DateTime Date
         {
             get { return _date; }

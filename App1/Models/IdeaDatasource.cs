@@ -3,29 +3,44 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.WindowsAzure.MobileServices;
 
 namespace App1.Models
 {
-    class IdeaDatasource : IIdeaDataSource
+    public class IdeaDatasource
     {
+        private MobileServiceCollectionView<IdeaItem> ideas;
+        private IMobileServiceTable<IdeaItem> ideaTable;
+
         public IdeaDatasource()
         {
-            
+            ideaTable = App.MobileService.GetTable<IdeaItem>();
+            ideas = ideaTable.ToCollectionView();
         }
 
-        virtual public bool Match(Idea idea)
+        public IMobileServiceTable<IdeaItem> IdeaTable
         {
-            return true;
+            get { return ideaTable; }
         }
 
-        public List<Idea> GetIdeasList()
+        public async void AddIdea(IdeaItem idea)
         {
-            throw new NotImplementedException();
+            await ideaTable.InsertAsync(idea);
         }
 
-        public List<Idea> GetSortedIdea()
+        public async Task<List<IdeaItem>> GetAllIdeas()
         {
-            return GetIdeasList().FindAll(Match);
+            return await ideaTable.ToListAsync();
+        }
+
+        public async Task<List<IdeaItem>> GetSortedIdeaByVoteCount()
+        {
+            return await ideaTable.OrderByDescending(x => x.VoteCount).ToListAsync();
+        }
+
+        public async Task<List<IdeaItem>> GetSortedIdeaByDate()
+        {
+            return await ideaTable.OrderBy(x => x.Date).ToListAsync();
         }
     }
 }

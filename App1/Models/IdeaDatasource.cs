@@ -28,9 +28,14 @@ namespace App1.Models
             await ideaTable.InsertAsync(idea);
         }
 
+        public async void UpdateIdea(IdeaItem idea)
+        {
+            await ideaTable.UpdateAsync(idea);
+        }
+
         public async Task<List<IdeaItem>> GetAllIdeas()
         {
-            return await ideaTable.ToListAsync();
+            return await ideaTable.OrderByDescending(x => x.Date).ToListAsync();
         }
 
         public async Task<List<IdeaItem>> GetSortedIdeaByVoteCount()

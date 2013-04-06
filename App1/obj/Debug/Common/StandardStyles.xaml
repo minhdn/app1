@@ -418,6 +418,18 @@
         <Setter Property="Content" Value="&#xE109;"/>
     </Style>
 
+    <Style x:Key="SortAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
+        <Setter Property="AutomationProperties.AutomationId" Value="SortAppBarButton"/>
+        <Setter Property="AutomationProperties.Name" Value="Sort"/>
+        <Setter Property="Content" Value="&#xE174;"/>
+    </Style>
+
+    <Style x:Key="SettingsAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
+        <Setter Property="AutomationProperties.AutomationId" Value="SettingsAppBarButton"/>
+        <Setter Property="AutomationProperties.Name" Value="Settings"/>
+        <Setter Property="Content" Value="&#xE115;"/>
+    </Style>
+
     <!--<Style x:Key="SkipBackAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
         <Setter Property="AutomationProperties.AutomationId" Value="SkipBackAppBarButton"/>
         <Setter Property="AutomationProperties.Name" Value="Skip Back"/>
@@ -523,11 +535,7 @@
         <Setter Property="AutomationProperties.Name" Value="Photo"/>
         <Setter Property="Content" Value="&#xE114;"/>
     </Style>
-    <Style x:Key="SettingsAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
-        <Setter Property="AutomationProperties.AutomationId" Value="SettingsAppBarButton"/>
-        <Setter Property="AutomationProperties.Name" Value="Settings"/>
-        <Setter Property="Content" Value="&#xE115;"/>
-    </Style>-->
+ -->
     
 
     <!--

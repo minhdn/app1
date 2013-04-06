@@ -27,6 +27,19 @@ namespace App1.Models
             }
         }
 
+        private string _fullContent;
+        [DataMember(Name = "fullContext")]
+        public string FullContent
+        {
+            get { return _fullContent; }
+            set
+            {
+                if (_fullContent == value) return;
+                _fullContent = value;
+                OnPropertyChanged("FullContent");
+            }
+        }
+
         private int _voteCount;
 
         [DataMember(Name = "vote")]

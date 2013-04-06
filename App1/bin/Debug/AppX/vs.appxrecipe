@@ -22,11 +22,11 @@
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Minh\Source\Repos\app1\App1\bin\Debug\App1.exe">
       <PackagePath>App1.exe</PackagePath>
-      <Modified>2013-04-05T05:42:51.287</Modified>
+      <Modified>2013-04-06T07:06:38.047</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Minh\Source\Repos\app1\App1\bin\Debug\App1.pdb">
       <PackagePath>App1.pdb</PackagePath>
-      <Modified>2013-04-05T05:42:51.265</Modified>
+      <Modified>2013-04-06T07:06:38.024</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.0\ExtensionSDKs\MobileServicesManagedClient\0.2.0.0\References\CommonConfiguration\neutral\Microsoft.WindowsAzure.MobileServices.Managed.dll">
       <PackagePath>Microsoft.WindowsAzure.MobileServices.Managed.dll</PackagePath>
@@ -62,11 +62,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Minh\Source\Repos\app1\App1\bin\Debug\Common\StandardStyles.xaml">
       <PackagePath>Common\StandardStyles.xaml</PackagePath>
-      <Modified>2013-04-05T05:33:50.987</Modified>
+      <Modified>2013-04-06T06:53:23.042</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Minh\Source\Repos\app1\App1\bin\Debug\Views\IdeaView.xaml">
       <PackagePath>Views\IdeaView.xaml</PackagePath>
-      <Modified>2013-04-05T05:39:37.881</Modified>
+      <Modified>2013-04-06T07:06:35.310</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Minh\Source\Repos\app1\App1\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>

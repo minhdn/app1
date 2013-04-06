@@ -18,31 +18,38 @@
             Source="{Binding Items}"/>
 
         <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
-        <x:String x:Key="AppName">My Application</x:String>
+        <x:String x:Key="AppName">Idea Collections</x:String>
 
         <!-- light blue -->
         <SolidColorBrush x:Key="BlockBackgroundBrush" Color="#FF557EB9"/>
 
         <!-- Grid Styles -->
         <Style x:Key="GridTitleTextStyle" TargetType="TextBlock" BasedOn="{StaticResource BasicTextStyle}">
-            <Setter Property="FontSize" Value="26.667"/>
+            <Setter Property="FontSize" Value="20"/>
             <Setter Property="Margin" Value="12,0,12,2"/>
         </Style>
 
         <Style x:Key="GridDescriptionTextStyle" TargetType="TextBlock" BasedOn="{StaticResource BasicTextStyle}">
             <Setter Property="VerticalAlignment" Value="Bottom"/>
-            <Setter Property="Margin" Value="12,0,12,60"/>
+            <Setter Property="Margin" Value="12,8,12,0"/>
         </Style>
 
         <DataTemplate x:Key="DefaultGridItemTemplate">
             <Grid HorizontalAlignment="Left" Width="250" Height="250">
                 <Border Background="{StaticResource BlockBackgroundBrush}" />
                 <TextBlock Text="{Binding ShortContent}" Style="{StaticResource GridTitleTextStyle}"/>
-                <TextBlock Text="{Binding Publisher}" Style="{StaticResource GridDescriptionTextStyle}" />
-                <StackPanel VerticalAlignment="Bottom" Orientation="Horizontal"
-                        Background="{StaticResource ListViewItemOverlayBackgroundThemeBrush}">
-                    <TextBlock Text="Last Updated" Margin="12,4,0,8" Height="42"/>
-                    <TextBlock Text="{Binding Date}" Margin="12,4,12,8" />
+                
+                <StackPanel Orientation="Vertical" VerticalAlignment="Bottom"  Background="{StaticResource ListViewItemOverlayBackgroundThemeBrush}">
+                    <TextBlock Text="{Binding Publisher}" Style="{StaticResource GridDescriptionTextStyle}" />
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Posted" Margin="12,0,0,0" Height="30"/>
+                        <TextBlock Text="{Binding Date}" Margin="12,0,12,0" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button x:ConnectionId='1' x:Name="btnVoteUp"                            Content="&#9650;" Style="{StaticResource TextButtonStyle}" />
+                        <Button x:ConnectionId='2' x:Name="btnVoteDown"                              Content="&#9660;" Margin="20,0,0,0" Style="{StaticResource TextButtonStyle}" />
+                        <TextBlock Text="{Binding VoteCount}" FontWeight="Bold"  Margin="15,0,0,0" />
+                    </StackPanel>
                 </StackPanel>
             </Grid>
         </DataTemplate>
@@ -56,7 +63,7 @@
                 <Border Background="{StaticResource BlockBackgroundBrush}" Width="60" Height="60" />
                 <StackPanel Grid.Column="1" Margin="10,0,0,0">
                     <TextBlock Text="{Binding ShortContent}" Style="{StaticResource ItemTextStyle}" MaxHeight="40"/>
-                    <TextBlock Text="{Binding Publisher}" Style="{StaticResource CaptionTextStyle}" TextWrapping="NoWrap"/>
+                    <TextBlock Text="{Binding Publisher}" Style="{StaticResource CaptionTextStyle}" />
                 </StackPanel>
             </Grid>
         </DataTemplate>
@@ -66,9 +73,13 @@
     <Page.BottomAppBar>
         <AppBar x:Name="BottomAppBar1" Padding="10,0,10,0" AutomationProperties.Name="Bottom App Bar">
             <Grid>
-                <StackPanel x:Name="LeftPanel" Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button x:ConnectionId='1' x:Name="Add" Style="{StaticResource AddAppBarButtonStyle}" Tag="Add"                     />
-                    <Button x:ConnectionId='2' x:Name="Refresh" Style="{StaticResource RefreshAppBarButtonStyle}" Tag="Refresh"                         />
+                <StackPanel x:Name="LeftPanel" Orientation="Horizontal" HorizontalAlignment="left">
+                    <Button x:ConnectionId='5' x:Name="Sort" Style="{StaticResource SortAppBarButtonStyle}" Tag="Sort"                      />
+                    <Button x:ConnectionId='6' x:Name="Add" Style="{StaticResource AddAppBarButtonStyle}" Tag="Add"                     />
+                </StackPanel>
+                <StackPanel x:Name="RightPanel" Orientation="Horizontal" HorizontalAlignment="right">
+                    <Button x:ConnectionId='3' x:Name="Refresh" Style="{StaticResource RefreshAppBarButtonStyle}" Tag="Refresh"                         />
+                    <Button x:ConnectionId='4' x:Name="Settings" Style="{StaticResource SettingsAppBarButtonStyle}" Tag="Settings"                          />
                 </StackPanel>
             </Grid>
         </AppBar>
@@ -86,19 +97,20 @@
         </Grid.RowDefinitions>
 
         <!-- Horizontal scrolling grid used in most view states -->
-        <GridView x:ConnectionId='3'
+        <GridView
             x:Name="itemGridView"
             AutomationProperties.AutomationId="ItemsGridView"
             AutomationProperties.Name="Items"
             TabIndex="1"
             Grid.RowSpan="2"
             Padding="116,136,116,46"
-                                                 
-            IsItemClickEnabled="True"
+            IsItemClickEnabled="false"
             ItemsSource="{Binding Source={StaticResource itemsViewSource}}"
             ItemTemplate="{StaticResource DefaultGridItemTemplate}"
             SelectionMode="None"
-            IsSwipeEnabled="false" Margin="0,0,0,77"/>
+            IsSwipeEnabled="false" Margin="0,0,0,0"/>
+
+        <!--ItemClick="ItemGridView_OnItemClick"-->
 
         <!-- Vertical scrolling list only used when snapped -->
         <ListView
@@ -121,7 +133,7 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button x:ConnectionId='4' x:Name="backButton"                IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
+            <Button x:ConnectionId='7' x:Name="backButton"                IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
             <TextBlock x:Name="pageTitle" Grid.Column="1" Text="{StaticResource AppName}" IsHitTestVisible="false" Style="{StaticResource PageHeaderTextStyle}"/>
         </Grid>
 
@@ -163,6 +175,11 @@
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="itemGridView" Storyboard.TargetProperty="Visibility">
                             <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
                         </ObjectAnimationUsingKeyFrames>
+
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Settings" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        
                     </Storyboard>
                 </VisualState>
             </VisualStateGroup>

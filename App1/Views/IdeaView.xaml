@@ -18,14 +18,14 @@
             Source="{Binding Items}"/>
 
         <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
-        <x:String x:Key="AppName">Idea Collections</x:String>
+        <x:String x:Key="AppName">Micro Ideas</x:String>
 
         <!-- light blue -->
         <SolidColorBrush x:Key="BlockBackgroundBrush" Color="#FF557EB9"/>
 
         <!-- Grid Styles -->
         <Style x:Key="GridTitleTextStyle" TargetType="TextBlock" BasedOn="{StaticResource BasicTextStyle}">
-            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontSize" Value="17"/>
             <Setter Property="Margin" Value="12,0,12,2"/>
         </Style>
 
@@ -35,7 +35,7 @@
         </Style>
 
         <DataTemplate x:Key="DefaultGridItemTemplate">
-            <Grid HorizontalAlignment="Left" Width="250" Height="250">
+            <Grid HorizontalAlignment="Left" Width="350" Height="250">
                 <Border Background="{StaticResource BlockBackgroundBrush}" />
                 <TextBlock Text="{Binding ShortContent}" Style="{StaticResource GridTitleTextStyle}"/>
                 
@@ -48,7 +48,7 @@
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <Button x:Name="btnVoteUp" Click="BtnVoteUp_OnClick"  Content="&#9650;" Style="{StaticResource TextButtonStyle}" />
                         <Button x:Name="btnVoteDown" Click="BtnVoteDown_OnClick"  Content="&#9660;" Margin="20,0,0,0" Style="{StaticResource TextButtonStyle}" />
-                        <TextBlock Text="{Binding VoteCount}" FontWeight="Bold"  Margin="15,0,0,0" />
+                        <TextBlock x:Name="txtVoteCount" Text="{Binding VoteCount}" FontWeight="Bold"  Margin="15,0,0,0" />
                     </StackPanel>
                 </StackPanel>
             </Grid>
@@ -74,12 +74,18 @@
         <AppBar x:Name="BottomAppBar1" Padding="10,0,10,0" AutomationProperties.Name="Bottom App Bar">
             <Grid>
                 <StackPanel x:Name="LeftPanel" Orientation="Horizontal" HorizontalAlignment="left">
+                    <Button x:Name="Home" Style="{StaticResource HomeAppBarButtonStyle}" Tag="Home" Click="Home_OnClick" />
                     <Button x:Name="Sort" Style="{StaticResource SortAppBarButtonStyle}" Tag="Sort" Click="Sort_OnClick" />
                     <Button x:Name="Add" Style="{StaticResource AddAppBarButtonStyle}" Tag="Add" Click="Add_OnClick" />
                 </StackPanel>
+                <StackPanel x:Name="CenterPanel" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button x:Name="Prev" Style="{StaticResource PrevAppBarButtonStyle}" Tag="Prev" Click="Prev_OnClick" />
+                    <TextBlock x:Name="CurrentPage" Text="[ 1 ]"  HorizontalAlignment="Center" FontSize="26" Margin="12" />
+                    <Button x:Name="Next" Style="{StaticResource NextAppBarButtonStyle}" Tag="Next" Click="Next_OnClick" />
+                </StackPanel>
                 <StackPanel x:Name="RightPanel" Orientation="Horizontal" HorizontalAlignment="right">
                     <Button x:Name="Refresh" Style="{StaticResource RefreshAppBarButtonStyle}" Tag="Refresh" Click="Refresh_OnClick" />
-                    <Button x:Name="Settings" Style="{StaticResource SettingsAppBarButtonStyle}" Tag="Settings" Click="Settings_OnClick" />
+                    <Button x:Name="Help" Style="{StaticResource HelpAppBarButtonStyle}" Tag="Help" Click="Help_OnClick" />
                 </StackPanel>
             </Grid>
         </AppBar>
@@ -108,6 +114,8 @@
             ItemsSource="{Binding Source={StaticResource itemsViewSource}}"
             ItemTemplate="{StaticResource DefaultGridItemTemplate}"
             SelectionMode="None"
+            IncrementalLoadingTrigger="Edge"
+            IncrementalLoadingThreshold="30"
             IsSwipeEnabled="false" Margin="0,0,0,0"/>
 
         <!--ItemClick="ItemGridView_OnItemClick"-->
@@ -176,10 +184,22 @@
                             <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
                         </ObjectAnimationUsingKeyFrames>
 
-                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Settings" Storyboard.TargetProperty="Visibility">
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Add" Storyboard.TargetProperty="Visibility">
                             <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
                         </ObjectAnimationUsingKeyFrames>
-                        
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Help" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Refresh" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Home" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Sort" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                        </ObjectAnimationUsingKeyFrames>
+
                     </Storyboard>
                 </VisualState>
             </VisualStateGroup>

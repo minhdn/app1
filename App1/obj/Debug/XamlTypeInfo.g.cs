@@ -112,9 +112,9 @@ namespace App1.App1_XamlTypeInfo
             }
         }
 
-        private object Activate_0_LayoutAwarePage() { return new global::App1.Common.LayoutAwarePage(); }
+        private object Activate_1_LayoutAwarePage() { return new global::App1.Common.LayoutAwarePage(); }
 
-        private object Activate_1_IdeaView() { return new global::App1.IdeaView(); }
+        private object Activate_2_IdeaView() { return new global::App1.IdeaView(); }
 
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(string typeName)
@@ -132,15 +132,20 @@ namespace App1.App1_XamlTypeInfo
                 xamlType = new global::App1.App1_XamlTypeInfo.XamlSystemBaseType(typeName, typeof(global::Windows.UI.Xaml.Controls.UserControl));
                 break;
 
+            case "App1.Splash":
+                userType = new global::App1.App1_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::App1.Splash), GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                xamlType = userType;
+                break;
+
             case "App1.Common.LayoutAwarePage":
                 userType = new global::App1.App1_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::App1.Common.LayoutAwarePage), GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_0_LayoutAwarePage;
+                userType.Activator = Activate_1_LayoutAwarePage;
                 xamlType = userType;
                 break;
 
             case "App1.IdeaView":
                 userType = new global::App1.App1_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::App1.IdeaView), GetXamlTypeByName("App1.Common.LayoutAwarePage"));
-                userType.Activator = Activate_1_IdeaView;
+                userType.Activator = Activate_2_IdeaView;
                 xamlType = userType;
                 break;
 

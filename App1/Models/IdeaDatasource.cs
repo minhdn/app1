@@ -11,7 +11,7 @@ namespace App1.Models
     {
         private MobileServiceCollectionView<IdeaItem> ideas;
         private IMobileServiceTable<IdeaItem> ideaTable;
-
+        private int ideasPerPage = 12;
         public IdeaDatasource()
         {
             ideaTable = App.MobileService.GetTable<IdeaItem>();
@@ -32,20 +32,76 @@ namespace App1.Models
         {
             await ideaTable.UpdateAsync(idea);
         }
+        public MobileServiceCollectionView<IdeaItem> GetCollectionView()
+        {
+            return ideaTable.ToCollectionView();
+        }
+
+        /// <summary>
+        /// Each page we get ideasPerPage records
+        /// </summary>
+        /// <param name="page"></param>
+        /// <returns></returns>
+        public async Task<List<IdeaItem>> GetIdeas(int page)
+        {
+            if(page <= 0)
+                throw new Exception("Invalid Arg");
+
+            return await ideaTable.Skip(ideasPerPage * (page - 1)).Take(ideasPerPage).OrderByDescending(x => x.Date).ToListAsync();
+        }
+
+        public async Task<List<IdeaItem>> GetSortedIdeaByVoteCount(bool descending, int page)
+        {
+            if (descending)
+            {
+                return await ideaTable.Skip(ideasPerPage * (page - 1)).Take(ideasPerPage).OrderByDescending(x => x.VoteCount).ToListAsync();
+            }
+            else
+            {
+                return await ideaTable.Skip(ideasPerPage * (page - 1)).Take(ideasPerPage).OrderBy(x => x.VoteCount).ToListAsync();
+            }
+        }
+
+        public async Task<List<IdeaItem>> GetSortedIdeaByDate(bool descending, int page)
+        {
+            if (descending)
+            {
+                return await ideaTable.Skip(ideasPerPage * (page - 1)).Take(ideasPerPage).OrderByDescending(x => x.Date).ToListAsync();
+            }
+            else
+            {
+                return await ideaTable.Skip(ideasPerPage * (page - 1)).Take(ideasPerPage).OrderBy(x => x.Date).ToListAsync();
+            }
+        }
 
         public async Task<List<IdeaItem>> GetAllIdeas()
         {
             return await ideaTable.OrderByDescending(x => x.Date).ToListAsync();
         }
 
-        public async Task<List<IdeaItem>> GetSortedIdeaByVoteCount()
+        public async Task<List<IdeaItem>> GetSortedIdeaByVoteCount(bool descending)
         {
-            return await ideaTable.OrderByDescending(x => x.VoteCount).ToListAsync();
+            if (descending)
+            {
+                return await ideaTable.OrderByDescending(x => x.VoteCount).ToListAsync();
+            }
+            else
+            {
+                return await ideaTable.OrderBy(x => x.VoteCount).ToListAsync();
+            }
         }
 
-        public async Task<List<IdeaItem>> GetSortedIdeaByDate()
+        public async Task<List<IdeaItem>> GetSortedIdeaByDate(bool descending)
         {
-            return await ideaTable.OrderBy(x => x.Date).ToListAsync();
+            if (descending)
+            {
+                return await ideaTable.OrderByDescending(x => x.Date).ToListAsync();
+            }
+            else
+            {
+                return await ideaTable.OrderBy(x => x.Date).ToListAsync();
+            }
+            
         }
     }
 }

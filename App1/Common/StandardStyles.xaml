@@ -430,6 +430,30 @@
         <Setter Property="Content" Value="&#xE115;"/>
     </Style>
 
+    <Style x:Key="HelpAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
+        <Setter Property="AutomationProperties.AutomationId" Value="HelpAppBarButton"/>
+        <Setter Property="AutomationProperties.Name" Value="Help"/>
+        <Setter Property="Content" Value="&#xE11B;"/>
+    </Style>
+
+    <Style x:Key="NextAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
+        <Setter Property="AutomationProperties.AutomationId" Value="HelpAppBarButton"/>
+        <Setter Property="AutomationProperties.Name" Value="Next"/>
+        <Setter Property="Content" Value="&#x00BB;"/>
+    </Style>
+
+    <Style x:Key="PrevAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
+        <Setter Property="AutomationProperties.AutomationId" Value="HelpAppBarButton"/>
+        <Setter Property="AutomationProperties.Name" Value="Prev"/>
+        <Setter Property="Content" Value="&#x00AB;"/>
+    </Style>
+
+    <Style x:Key="HomeAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
+        <Setter Property="AutomationProperties.AutomationId" Value="HomeAppBarButton"/>
+        <Setter Property="AutomationProperties.Name" Value="Home"/>
+        <Setter Property="Content" Value="&#xE10F;"/>
+    </Style>
+
     <!--<Style x:Key="SkipBackAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
         <Setter Property="AutomationProperties.AutomationId" Value="SkipBackAppBarButton"/>
         <Setter Property="AutomationProperties.Name" Value="Skip Back"/>

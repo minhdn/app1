@@ -27,3 +27,6 @@ C:\Users\Minh\Source\Repos\app1\App1\obj\Debug\Views\IdeaView.g.cs
 C:\Users\Minh\Source\Repos\app1\App1\obj\Debug\Views\IdeaView.xaml
 C:\Users\Minh\Source\Repos\app1\App1\bin\Debug\Microsoft.WindowsAzure.MobileServices.Managed.dll
 C:\Users\Minh\Source\Repos\app1\App1\obj\Debug\App1.csproj.GenerateResource.Cache
+C:\Users\Minh\Source\Repos\app1\App1\obj\Debug\Splash.g.i.cs
+C:\Users\Minh\Source\Repos\app1\App1\obj\Debug\Splash.g.cs
+C:\Users\Minh\Source\Repos\app1\App1\obj\Debug\Splash.xaml

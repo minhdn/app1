@@ -1,8 +1,10 @@
+Assets\advertisementsample.png
 Assets\Logo.png
 Assets\SmallLogo.png
 Assets\SplashScreen.png
 Assets\StoreLogo.png
 App.xaml
 Common\StandardStyles.xaml
+Splash.xaml
 Views\IdeaView.xaml
 Common\ReadMe.txt

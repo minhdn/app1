@@ -24,7 +24,7 @@
     <Application Id="App" Executable="App1.exe" EntryPoint="App1.App">
       <VisualElements DisplayName="MicroIdeas" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="App1" ForegroundText="light" BackgroundColor="#464646">
         <DefaultTile ShowName="allLogos" />
-        <SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#464646" />
+        <SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#ffffff" />
       </VisualElements>
     </Application>
   </Applications>

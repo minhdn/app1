@@ -7,13 +7,13 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Canvas Background="#464646">
+    <Canvas Background="#ffffff">
         <Image x:Name="SplashScreenImage"
             Source="Assets/SplashScreen.png"
             Width="620"
             Height="300"
             Visibility="Collapsed"/>
-        <ProgressRing x:Name="ProgressRing" Foreground="White" HorizontalAlignment="Center" IsActive="True" 
+        <ProgressRing x:Name="ProgressRing" Foreground="SlateGray" HorizontalAlignment="Center" IsActive="True" 
                       MaxHeight="30" MinHeight="30" MaxWidth="30" 
                       MinWidth="30"/>
     </Canvas>

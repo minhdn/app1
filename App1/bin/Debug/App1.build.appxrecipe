@@ -22,9 +22,6 @@
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.0\ExtensionSDKs\MobileServicesManagedClient\0.2.0.0\References\CommonConfiguration\neutral\Microsoft.WindowsAzure.MobileServices.Managed.dll">
       <PackagePath>Microsoft.WindowsAzure.MobileServices.Managed.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Minh\Source\Repos\app1\App1\Assets\advertisementsample.png">
-      <PackagePath>Assets\advertisementsample.png</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Minh\Source\Repos\app1\App1\Assets\Logo.png">
       <PackagePath>Assets\Logo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>

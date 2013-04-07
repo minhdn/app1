@@ -445,7 +445,7 @@
     <Style x:Key="PrevAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
         <Setter Property="AutomationProperties.AutomationId" Value="HelpAppBarButton"/>
         <Setter Property="AutomationProperties.Name" Value="Prev"/>
-        <Setter Property="Content" Value="&#x00AB;"/>
+        <Setter Property="Content" Value="&#x00AB;" />
     </Style>
 
     <Style x:Key="HomeAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">

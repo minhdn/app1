@@ -11,7 +11,7 @@ namespace App1.Models
     {
         private MobileServiceCollectionView<IdeaItem> ideas;
         private IMobileServiceTable<IdeaItem> ideaTable;
-        private int ideasPerPage = 12;
+        private int ideasPerPage = 30;
         public IdeaDatasource()
         {
             ideaTable = App.MobileService.GetTable<IdeaItem>();

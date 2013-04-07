@@ -133,7 +133,6 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    <None Include="App1_StoreKey.pfx" />
     <None Include="App1_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

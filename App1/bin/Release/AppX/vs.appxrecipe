@@ -5,28 +5,28 @@
     <WindowsUser>Minh</WindowsUser>
     <SolutionConfiguration>Release|AnyCPU</SolutionConfiguration>
     <PackageArchitecture>neutral</PackageArchitecture>
-    <RegisteredManifestChecksum>06263ED23A91588780D9C9639F2466897D1B0F261F1DC0D39D8BA729A479B66D</RegisteredManifestChecksum>
-    <RegisteredPackageMoniker>41f74ffa-d234-4edb-bfad-c78a336a5911_1.0.0.0_neutral__ga7xs7wrf02ve</RegisteredPackageMoniker>
-    <RegisteredUserModeAppID>41f74ffa-d234-4edb-bfad-c78a336a5911_ga7xs7wrf02ve!App</RegisteredUserModeAppID>
-    <RegisteredPackageID>41f74ffa-d234-4edb-bfad-c78a336a5911</RegisteredPackageID>
-    <RegisteredPackagePublisher>CN=Minh</RegisteredPackagePublisher>
+    <RegisteredManifestChecksum>C3BF3008B29A7ADDA4769DA075A2BEA97498894EE1E653C3869329E6B72BABF6</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>42305nightowl1.Microideas_1.0.0.0_neutral__74jfhkbk593j0</RegisteredPackageMoniker>
+    <RegisteredUserModeAppID>42305nightowl1.Microideas_74jfhkbk593j0!App</RegisteredUserModeAppID>
+    <RegisteredPackageID>42305nightowl1.Microideas</RegisteredPackageID>
+    <RegisteredPackagePublisher>CN=AAFAA6FF-562D-4216-97DB-04E136731CC3</RegisteredPackagePublisher>
     <RegisteredVersion>1.0.0.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
     <AppXManifest Include="C:\Users\Minh\Source\Repos\app1\App1\bin\Release\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2013-04-07T04:16:34.242</Modified>
+      <Modified>2013-04-07T04:50:10.302</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Minh\Source\Repos\app1\App1\bin\Release\App1.exe">
       <PackagePath>App1.exe</PackagePath>
-      <Modified>2013-04-07T04:16:34.174</Modified>
+      <Modified>2013-04-07T04:50:10.224</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Minh\Source\Repos\app1\App1\bin\Release\App1.pdb">
       <PackagePath>App1.pdb</PackagePath>
-      <Modified>2013-04-07T04:16:34.158</Modified>
+      <Modified>2013-04-07T04:50:10.208</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.0\ExtensionSDKs\MobileServicesManagedClient\0.2.0.0\References\CommonConfiguration\neutral\Microsoft.WindowsAzure.MobileServices.Managed.dll">
       <PackagePath>Microsoft.WindowsAzure.MobileServices.Managed.dll</PackagePath>
@@ -74,7 +74,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Minh\Source\Repos\app1\App1\bin\Release\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2013-04-07T04:12:05.088</Modified>
+      <Modified>2013-04-07T04:21:52.132</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
